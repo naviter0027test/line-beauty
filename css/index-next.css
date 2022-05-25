@@ -50,11 +50,11 @@ body {
 }
 
 .wrapper_head2 a.head_green {
-    background: #00b377;
+    background: #2db4a5;
 }
 
 .wrapper_head2 a.head_red {
-    background: #ff6666;
+    background: #ea5455;
 }
 
 .marquee_x {
@@ -151,8 +151,19 @@ body {
     top: 2px;;
 }
 
+.box_show2 .info_1 .choice_love {
+    position: relative;
+    top: 4px;
+    left: -10px;
+    float: right;
+}
+
+.box_show2 .info_1 .choice_love img {
+    width: 16px;
+}
+
 .box_show2 .info_2 {
-    padding: 8px;
+    padding: 8px 2px 8px 2px ;
 
     font-family: 'Roboto';
     font-style: normal;
@@ -167,9 +178,96 @@ body {
 }
 
 .box_show2 .info_2 .info_2_desc {
+    margin-top: 4px;
+
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 300;
     font-size: 16px;
     color: rgba(255, 255, 255, 0.8);
+}
+
+.page_show {
+    margin-top: 18px;
+    text-align: center;
+}
+
+.page_show a {
+    display: inline-block;
+
+    text-decoration: none;
+    background: #f3f2f7;
+    color: #6b7280;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.page_show > a {
+    padding: 12px;
+
+    font-size: 16px;
+    height: 16px;
+    -webkit-border-radius: 29px;
+    -moz-border-radius: 29px;
+    border-radius: 29px;
+}
+
+.page_show .left-arrow {
+}
+
+.page_show .page_num {
+    display: inline-block;
+    position: relative;
+    top: 8px;
+    height: 30px;
+    margin: 0px 10px 0px 10px;
+
+    background: #f3f2f7;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    border-radius: 16px;
+}
+
+.page_show .page_num a {
+    position: relative;
+    top: -8px;
+    padding: 6px 16px 6px 16px;
+}
+
+.page_show .page_num a:first-child {
+    -webkit-border-top-left-radius: 16px;
+    -webkit-border-bottom-left-radius: 16px;
+    -moz-border-radius-topleft: 16px;
+    -moz-border-radius-bottomleft: 16px;
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+}
+
+.page_show .page_num a:last-child {
+    -webkit-border-top-right-radius: 16px;
+    -webkit-border-bottom-right-radius: 16px;
+    -moz-border-radius-topright: 16px;
+    -moz-border-radius-bottomright: 16px;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+
+.page_show .page_num label {
+    display: inline-block;
+    position: relative;
+    top: -8px;
+    padding: 14px;
+    height: 16px;
+
+    background: #2db4a5;
+    color: white;
+    font-family: 'SF Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    -webkit-border-radius: 29px;
+    -moz-border-radius: 29px;
+    border-radius: 29px;
 }

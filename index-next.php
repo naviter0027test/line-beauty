@@ -89,7 +89,6 @@ $row_marquee = $db->getRows('dbmarquee',array('where'=>array('idx'=>$id),'return
                 <div class="info_1">
                     <label class="info_1_1">雙北外送</label>
                     <span class="info_span info_span_date"><img src="img/microphone-alt.png" /> 2022/05/17</span>
-                    <a href="#" class="choice_love"><img src="img/Vector-love.png" /></a>
                 </div>
                 <div class="info_2">
                     桃園+中壢外送報班-追加
@@ -103,6 +102,7 @@ $row_marquee = $db->getRows('dbmarquee',array('where'=>array('idx'=>$id),'return
                     <label class="info_1_1">老師解說</label>
                     <span class="info_span info_span_date"><img src="img/microphone-alt.png" /> 2022/05/17</span>
                     <span class="info_span info_span_see"><img src="img/Vector.png" /> 3341次</span>
+                    <a href="#" class="choice_love"><img src="img/Vector-love.png" /></a>
                 </div>
                 <div class="info_2">
                     報班網站: <a href="#">http://www.line88888.us</a>
@@ -113,7 +113,13 @@ $row_marquee = $db->getRows('dbmarquee',array('where'=>array('idx'=>$id),'return
             </div>
 
             <div class="page_show">
+                <a href="#" class="left-arrow">&lt;</a>
+                <div class="page_num">
+                    <a href="#">1</a><a href="#">2</a><label>3</label><a href="#">4</a><a href="#">5</a>
+                </div>
+                <a href="#" class="right-arrow">&gt;</a>
             </div>
+            <br />
 
         </div>
     </div>
