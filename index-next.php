@@ -112,12 +112,12 @@ $row_marquee = $db->getRows('dbmarquee',array('where'=>array('idx'=>$id),'return
                 <?php if(trim($row_imgs[0]['name']) != '') { ?>
                 <li>
                     <a href="<?php echo "beautyimg/php/files/".$row_imgs[0]['name'];?>" class="html5lightbox" data-group="<?php echo 'set'.$row_new['idx'];?>">
-                        <img src="<?php echo "beautyimg/php/files/".$row_imgs[0]['name'];?>" />
+                        <img class="show_img" src="<?php echo "beautyimg/php/files/".$row_imgs[0]['name'];?>" />
                     </a>
                 </li>
                 <?php for($i = 1;$i < count($row_imgs);++$i) { ?>
                 <li>
-                    <a href="<?php echo "beautyimg/php/files/".$row_imgs[$i]['name'];?>" class="html5lightbox" data-group="<?php echo 'set'.$row_new['idx'];?>"></a>
+                    <a href="<?php echo "beautyimg/php/files/".$row_imgs[$i]['name'];?>" class="html5lightbox" data-group="<?php echo 'set'.$row_new['idx'];?>" img_id="<?php echo $row_imgs[$i]['id']; ?>"></a>
                 </li>
                 <?php } ?>
                 <?php if(!empty($row_vedio)) { ?>
@@ -127,9 +127,11 @@ $row_marquee = $db->getRows('dbmarquee',array('where'=>array('idx'=>$id),'return
                 </li>
                 <?php } ?>
                 <?php } else if(!empty($row_vedio)) { ?>
-                <li class="viedo">
+                <li class="viedo video_li">
                     <a href="vedio/<?php echo $row_vedio['file_src']; ?>" class="html5lightbox" data-group="<?php echo 'set'.$row_new['idx'];?>">
-                        <div class="viewvedio"></div>
+                        <img src="img/icon_vedio.png" class="video_play" />
+                        <canvas class="viewvedio"></canvas>
+                      <video><source src="<?php echo "vedio/".$row_vedio['file_src'];?>#t=0.1" type="video/mp4"></video>
                     </a>
                 </li>
                 <?php } ?>
@@ -215,6 +217,7 @@ $row_marquee = $db->getRows('dbmarquee',array('where'=>array('idx'=>$id),'return
     </div>
 </body>
 <script src="_src/marquee/jquery.marquee.min.js"></script>
+<script src="js/plugins.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
         $('.marquee').marquee({
@@ -229,6 +232,33 @@ $row_marquee = $db->getRows('dbmarquee',array('where'=>array('idx'=>$id),'return
             //true or false - should the marquee be duplicated to show an effect of continues flow
             duplicated: true
         });
+
+        setTimeout(function() {
+            for(var i = 0;i < $('.video_li').length;++i) {
+                canvas_show(i);
+            }
+        }, 1500);
     });
+
+    function canvas_show(i) {
+        var video = document.getElementsByTagName('video')[i];
+        var canvas = document.getElementsByTagName('canvas')[i];
+        canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+    }
+
+    var videos = document.getElementsByTagName('video');
+    for (var i = videos.length - 1; i >= 0; i--) {
+        (function(){
+            var p = i;
+            videos[p].addEventListener('play',function(){
+                pauseAll(p);
+            })
+        })()
+    }
+    function pauseAll(index){
+        for (var j = videos.length - 1; j >= 0; j--) {
+            if (j!=index) videos[j].pause();
+        }
+    };
 </script>
 </html>
