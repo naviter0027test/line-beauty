@@ -1,0 +1,131 @@
+
+.wrapper_maincontent {
+}
+
+.box_show3 {
+    max-width: 500px;
+    margin-right: auto;
+    margin-left: auto;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.box_show3 video {
+    width: 100%;
+}
+
+.box_show3 .video_play {
+    position: absolute;
+    display: inline-block;;
+    left: 48%;
+    top: 300px;
+    padding: 8px 16px;
+    font-size: 30px;
+
+    color: black;
+    background: white;
+    -webkit-border-radius: 49px;
+    -moz-border-radius: 49px;
+    border-radius: 49px;
+    cursor: pointer;
+    z-index:2;
+}
+
+.box_detail {
+    width: 100%;
+    background: #222;
+}
+
+.box_detail .box_progress {
+    padding: 12px 0 0 0;
+}
+
+.box_detail .has_text {
+    display: inline-block;
+    color: white;
+}
+
+.box_detail .has_show {
+    margin: 0px 10px 0px 2%;
+}
+
+.box_detail .total_show {
+    margin-left: 10px;
+}
+
+.box_detail .progress_out {
+    display: inline-block;
+    width: 85%;
+    height: 8px;
+
+    background: #cccccc;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+}
+
+.box_detail .progress_in {
+    display: inline-block;
+    width: 60%;
+    height: 8px;
+
+    background: white;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+}
+
+.info_1 {
+    margin: 24px 0 0 2%;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.info_1 label {
+    padding: 3px 8px 3px 8px;
+    margin-right: 8px;
+
+    color: white;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    opacity: 0.9;
+}
+
+.info_1 label.info_1_1 {
+    background: #174780;
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.info_1 label.info_1_2 {
+    background: #787878;
+    font-size: 12px;
+    opacity: 1;
+}
+
+.info_1 .info_span {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    opacity: 0.6;
+}
+
+.info_2 {
+    margin: 0px 2% 0 2%;
+    padding: 8px 2px 8px 2px ;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.info_2 a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+}

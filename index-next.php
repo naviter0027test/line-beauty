@@ -34,6 +34,7 @@ $row_marquee = $db->getRows('dbmarquee',array('where'=>array('idx'=>$id),'return
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
 <?php include "_template/pagekeyword_2.php"; ?>
+    <link href="css/index_head.css" rel="stylesheet" type="text/css" />
     <link href="css/index-next.css" rel="stylesheet" type="text/css" />
 <?php include "_template/htmlhead.php"; ?>
 
