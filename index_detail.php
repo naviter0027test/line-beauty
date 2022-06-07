@@ -14,6 +14,7 @@ include "_fphp/allpage.php";
     <meta name="description" content="阿鬼影片部落格 外送茶|定點樓鳳|外約">
     <meta property="og:description" content="阿鬼影片部落格 外送茶|定點樓鳳|外約" />
     <meta property="og:title" content="阿鬼影片部落格 外送茶|定點樓鳳|外約"/>
+<?php include "_template/detail_keyword.php"; ?>
     <link href="css/index_head.css" rel="stylesheet" type="text/css" />
     <link href="css/index_detail.css" rel="stylesheet" type="text/css" />
 </head>
@@ -35,7 +36,10 @@ include "_fphp/allpage.php";
         <div class="box_show3">
             <span class="video_play"><img src="img/play.png"/><!--▶--></span>
             <span class="video_pause"><img src="img/pause.png"/></span>
-            <video class="video_box"><source src="/vedio/202204202153136413.mp4#t=0.1" type="video/mp4"></video>
+            <video class="video_box">
+                <!--source src="/vedio/202204202153136413.mp4#t=0.1" type="video/mp4"-->
+                <source src="/vedio/202112201811213893.mp4#t=0.1" type="video/mp4">
+            </video>
         </div>
         <div class="box_detail">
             <div class="box_progress">
@@ -84,8 +88,10 @@ $(document).ready(function() {
             //$('.head_right').css('font-size', '14px');
             $('.head_right').css('margin-top', '0px');
             $('.video_play').css('left', '44%');
+            $('.video_pause').css('left', '44%');
             var h = $('.box_show3').height() / 2 + 40;
             $('.video_play').css('top', h+'px');
+            $('.video_pause').css('top', h+'px');
             $('.progress_out').css('width', '75%');
         } else if($('body').width() > 1000) {
             $('.progress_out').css('width', '90%');
@@ -96,7 +102,9 @@ $(document).ready(function() {
             //$('.head_right').css('font-size', '14px');
             $('.head_right').css('margin-top', '10px');
             $('.video_play').css('left', '48%');
+            $('.video_pause').css('left', '48%');
             $('.video_play').css('top', '300px');
+            $('.video_pause').css('top', '300px');
             $('.progress_out').css('width', '85%');
         }
     }, 500);
@@ -111,18 +119,25 @@ $(document).ready(function() {
         var currentTime_sec = Math.floor(video_box.currentTime - currentTime_min * 60);
         $('.has_show').text(currentTime_min+':'+currentTime_sec);
     }, 1000);
+
+    var only_one = true;
+
     $('.video_play').click(function() {
         var video_box = $('.video_box')[0];
         video_box.play();
         $('.video_play').hide();
         $('.video_pause').show();
-        setInterval(function() {
-            var now_per = (video_box.currentTime / video_box.duration) * 100;
-            $('.progress_in').css('width', now_per+'%');
-            var currentTime_min = Math.floor(video_box.currentTime / 60);
-            var currentTime_sec = Math.floor(video_box.currentTime - currentTime_min * 60);
-            $('.has_show').text(currentTime_min+':'+currentTime_sec);
-        }, 1000);
+
+        if(only_one == true) {
+            setInterval(function() {
+                var now_per = (video_box.currentTime / video_box.duration) * 100;
+                $('.progress_in').css('width', now_per+'%');
+                var currentTime_min = Math.floor(video_box.currentTime / 60);
+                var currentTime_sec = Math.floor(video_box.currentTime - currentTime_min * 60);
+                $('.has_show').text(currentTime_min+':'+currentTime_sec);
+            }, 1000);
+        }
+        only_one = false;
     });
     $('.video_pause').click(function() {
         var video_box = $('.video_box')[0];
