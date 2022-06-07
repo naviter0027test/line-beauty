@@ -5,10 +5,15 @@ body {
 
 .wrapper_head .head_left {
     float: left;
+    margin-top: 10px;
 
     border: 1px solid transparent;
     background: #222;
     cursor: pointer;
+}
+
+.wrapper_head .head_left img {
+    width: 35px;
 }
 
 .wrapper_head .head_right {
@@ -31,7 +36,7 @@ body {
 }
 
 .wrapper_head {
-    padding: 15px;
+    padding: 10px;
 
     color: white;
     background: #222;

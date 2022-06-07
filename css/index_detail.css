@@ -2,10 +2,37 @@
 .wrapper_maincontent {
 }
 
+.box_left {
+    display: none;
+    width: 100%;
+
+    vertical-align: top;
+    text-align: center;
+    background: #313131;
+    z-index: 3;
+}
+
+.box_left_clicked {
+    position: absolute;
+    display: block;
+}
+
+.box_left a {
+    display: block;
+    padding: 20px;
+
+    color: white;
+    text-decoration: none;
+}
+
+.box_left a:hover {
+    background: #222;
+}
+
 .box_show3 {
     max-width: 500px;
-    margin-right: auto;
     margin-left: auto;
+    margin-right: auto;
     overflow-x: hidden;
     overflow-y: hidden;
 }
@@ -19,16 +46,55 @@
     display: inline-block;;
     left: 48%;
     top: 300px;
-    padding: 8px 16px;
+    padding: 8px 14px 12px 16px;
     font-size: 30px;
 
+    background: transparent;
+    /*
     color: black;
     background: white;
     -webkit-border-radius: 49px;
     -moz-border-radius: 49px;
     border-radius: 49px;
+    */
     cursor: pointer;
     z-index:2;
+    border: 1px solid transparent;
+}
+
+.box_show3 .video_play:hover {
+    border: 1px solid transparent;
+}
+
+.box_show3 .video_play img {
+    width: 30px;
+    height: 30px;
+}
+
+.box_show3 .video_pause {
+    position: absolute;
+    display: none;
+    left: 48%;
+    top: 300px;
+    padding: 8px 14px 12px 16px;
+    font-size: 30px;
+
+    background: transparent;
+    /*
+    color: black;
+    background: white;
+    -webkit-border-radius: 49px;
+    -moz-border-radius: 49px;
+    border-radius: 49px;
+    */
+    cursor: pointer;
+    z-index:2;
+    border: 1px solid transparent;
+}
+
+.box_show3 .video_pause img {
+    width: 30px;
+    height: 30px;
 }
 
 .box_detail {
@@ -66,7 +132,7 @@
 
 .box_detail .progress_in {
     display: inline-block;
-    width: 60%;
+    width: 0%;
     height: 8px;
 
     background: white;

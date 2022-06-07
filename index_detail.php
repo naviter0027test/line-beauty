@@ -24,9 +24,18 @@ include "_fphp/allpage.php";
         <a href="index-next.php" class="head_right">回上一頁</a>
     </div>
     <div class="wrapper_maincontent">
+        <div class="box_left">
+            <a href="index-next.php?cate=29">雙北外送</a>
+            <a href="index-next.php?cate=15">桃園外送</a>
+            <a href="index-next.php?cate=30">新竹外送</a>
+            <a href="index-next.php?cate=31">台中外送</a>
+            <a href="index-next.php?cate=33">彰雲外送</a>
+            <a href="index-next.php?cate=34">台南外送</a>
+        </div>
         <div class="box_show3">
-            <span class="video_play">▶</span>
-            <video><source src="/vedio/202204202153136413.mp4#t=0.1" type="video/mp4"></video>
+            <span class="video_play"><img src="img/play.png"/><!--▶--></span>
+            <span class="video_pause"><img src="img/pause.png"/></span>
+            <video class="video_box"><source src="/vedio/202204202153136413.mp4#t=0.1" type="video/mp4"></video>
         </div>
         <div class="box_detail">
             <div class="box_progress">
@@ -53,4 +62,74 @@ include "_fphp/allpage.php";
         </div>
     </div>
 </body>
+<script src="js/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('.head_left').click(function() {
+        $('.box_left').toggleClass('box_left_clicked');
+        /*
+        if($('.box_left').hasClass('box_left_clicked') == true) {
+            $('.video_play').css('left', '58%');
+        } else {
+            $('.video_play').css('left', '48%');
+        }
+         */
+    });
+
+    setInterval(function() {
+        if($('body').width() < 500) {
+            $('.head_left').css('margin-top', '3px');
+            $('.logo1').css('width', '80px');
+            $('.logo2').css('font-size', '26px');
+            //$('.head_right').css('font-size', '14px');
+            $('.head_right').css('margin-top', '0px');
+            $('.video_play').css('left', '44%');
+            var h = $('.box_show3').height() / 2 + 40;
+            $('.video_play').css('top', h+'px');
+            $('.progress_out').css('width', '75%');
+        } else if($('body').width() > 1000) {
+            $('.progress_out').css('width', '90%');
+        } else {
+            $('.head_left').css('margin-top', '10px');
+            $('.logo1').css('width', '129px');
+            $('.logo2').css('font-size', '40px');
+            //$('.head_right').css('font-size', '14px');
+            $('.head_right').css('margin-top', '10px');
+            $('.video_play').css('left', '48%');
+            $('.video_play').css('top', '300px');
+            $('.progress_out').css('width', '85%');
+        }
+    }, 500);
+
+    setTimeout(function() {
+        var video_box = $('.video_box')[0];
+        var duration_min = Math.floor(video_box.duration / 60);
+        var duration_sec = Math.floor(video_box.duration % 60);
+        $('.total_show').text(duration_min+':'+duration_sec);
+
+        var currentTime_min = Math.floor(video_box.currentTime / 60);
+        var currentTime_sec = Math.floor(video_box.currentTime - currentTime_min * 60);
+        $('.has_show').text(currentTime_min+':'+currentTime_sec);
+    }, 1000);
+    $('.video_play').click(function() {
+        var video_box = $('.video_box')[0];
+        video_box.play();
+        $('.video_play').hide();
+        $('.video_pause').show();
+        setInterval(function() {
+            var now_per = (video_box.currentTime / video_box.duration) * 100;
+            $('.progress_in').css('width', now_per+'%');
+            var currentTime_min = Math.floor(video_box.currentTime / 60);
+            var currentTime_sec = Math.floor(video_box.currentTime - currentTime_min * 60);
+            $('.has_show').text(currentTime_min+':'+currentTime_sec);
+        }, 1000);
+    });
+    $('.video_pause').click(function() {
+        var video_box = $('.video_box')[0];
+        video_box.pause();
+        $('.video_play').show();
+        $('.video_pause').hide();
+    });
+});
+</script>
 </html>
