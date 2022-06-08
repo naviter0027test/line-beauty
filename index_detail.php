@@ -14,14 +14,13 @@ include "_fphp/allpage.php";
     <meta name="description" content="阿鬼影片部落格 外送茶|定點樓鳳|外約">
     <meta property="og:description" content="阿鬼影片部落格 外送茶|定點樓鳳|外約" />
     <meta property="og:title" content="阿鬼影片部落格 外送茶|定點樓鳳|外約"/>
-<?php include "_template/detail_keyword.php"; ?>
     <link href="css/index_head.css" rel="stylesheet" type="text/css" />
     <link href="css/index_detail.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <div class="wrapper_head">
         <button class="head_left"><img src="img/list-head-left.png" /></button>
-        <img src="img/LOGO.png" class="logo1"></img> <label class="logo2">阿鬼</label>
+        <img src="img/LOGO-001-white.png" class="logo1"></img> <!--label class="logo2">阿鬼</label-->
         <a href="index-next.php" class="head_right">回上一頁</a>
     </div>
     <div class="wrapper_maincontent">
@@ -37,8 +36,8 @@ include "_fphp/allpage.php";
             <span class="video_play"><img src="img/play.png"/><!--▶--></span>
             <span class="video_pause"><img src="img/pause.png"/></span>
             <video class="video_box">
-                <!--source src="/vedio/202204202153136413.mp4#t=0.1" type="video/mp4"-->
-                <source src="/vedio/202112201811213893.mp4#t=0.1" type="video/mp4">
+                <source src="/vedio/202204202153136413.mp4#t=0.1" type="video/mp4">
+                <!--source src="/vedio/202112201811213893.mp4#t=0.1" type="video/mp4"-->
             </video>
         </div>
         <div class="box_detail">
@@ -83,8 +82,7 @@ $(document).ready(function() {
     setInterval(function() {
         if($('body').width() < 500) {
             $('.head_left').css('margin-top', '3px');
-            $('.logo1').css('width', '80px');
-            $('.logo2').css('font-size', '26px');
+            $('.logo1').css('width', '40px');
             //$('.head_right').css('font-size', '14px');
             $('.head_right').css('margin-top', '0px');
             $('.video_play').css('left', '44%');
@@ -97,8 +95,7 @@ $(document).ready(function() {
             $('.progress_out').css('width', '90%');
         } else {
             $('.head_left').css('margin-top', '10px');
-            $('.logo1').css('width', '129px');
-            $('.logo2').css('font-size', '40px');
+            $('.logo1').css('width', '55px');
             //$('.head_right').css('font-size', '14px');
             $('.head_right').css('margin-top', '10px');
             $('.video_play').css('left', '48%');

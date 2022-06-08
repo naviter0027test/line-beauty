@@ -45,6 +45,10 @@ body {
     font-weight: bold;
 }
 
+.wrapper_head .logo1 {
+    width: 55px;
+}
+
 .wrapper_head label {
     display: inline-block;
 }

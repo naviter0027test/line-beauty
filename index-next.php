@@ -57,7 +57,7 @@ $row_marquee = $db->getRows('dbmarquee',array('where'=>array('idx'=>$id),'return
 <?php }?>
 
     <div class="wrapper_head">
-        <img src="img/LOGO.png" class="logo1"></img> <label class="logo2">阿鬼</label>
+        <img src="img/LOGO-001-white.png" class="logo1"></img> <!--label class="logo2">阿鬼</label-->
     </div>
     <div class="wrapper_head2">
 <?php if(!empty($row_catas)){?>
