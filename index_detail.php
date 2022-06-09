@@ -38,12 +38,12 @@ $row_nowcata = $db->getRows('dbnews_cata',array('where'=>array('big_id'=>$row_ne
     </div>
     <div class="wrapper_maincontent">
         <div class="box_left">
-            <a href="index-next.php?cate=29">雙北外送</a>
-            <a href="index-next.php?cate=15">桃園外送</a>
-            <a href="index-next.php?cate=30">新竹外送</a>
-            <a href="index-next.php?cate=31">台中外送</a>
-            <a href="index-next.php?cate=33">彰雲外送</a>
-            <a href="index-next.php?cate=34">台南外送</a>
+            <a href="index.php?cate=29">雙北外送</a>
+            <a href="index.php?cate=15">桃園外送</a>
+            <a href="index.php?cate=30">新竹外送</a>
+            <a href="index.php?cate=31">台中外送</a>
+            <a href="index.php?cate=33">彰雲外送</a>
+            <a href="index.php?cate=34">台南外送</a>
         </div>
         <div class="box_show3">
         <?php if($row_imgscount < 1) { ?>
@@ -60,7 +60,7 @@ $row_nowcata = $db->getRows('dbnews_cata',array('where'=>array('big_id'=>$row_ne
                 <!--source src="/vedio/202112201811213893.mp4#t=0.1" type="video/mp4"-->
             </video>
         <?php } else { ?>
-            <?php for($i = 1;$i < count($row_imgs);++$i) { ?>
+            <?php for($i = 0;$i < count($row_imgs);++$i) { ?>
             <img class="img_show_box" src="<?php echo "beautyimg/php/files/".$row_imgs[$i]['name'];?>" />
             <?php } ?>
         <?php } ?>

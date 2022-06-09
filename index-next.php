@@ -62,7 +62,7 @@ $row_marquee = $db->getRows('dbmarquee',array('where'=>array('idx'=>$id),'return
     <div class="wrapper_head2">
 <?php if(!empty($row_catas)){?>
     <?php foreach($row_catas as $i => $row_cata){?>
-    <a href="<?php echo "index-next.php?cata=".$row_cata['big_id']?>" class="<?php echo $i % 2 == 0 ? 'head_green' : 'head_red'; ?>"><?php echo $row_cata['big_name'];?></a>
+    <a href="<?php echo "index.php?cata=".$row_cata['big_id']?>" class="<?php echo $i % 2 == 0 ? 'head_green' : 'head_red'; ?>"><?php echo $row_cata['big_name'];?></a>
     <?php }?> 
 <?php }?> 
 <!--
@@ -203,7 +203,7 @@ $row_marquee = $db->getRows('dbmarquee',array('where'=>array('idx'=>$id),'return
                 <?php if($page_i == $page) { ?>
                     <label><?php echo $page_i; ?></label>
                 <?php } else { ?>
-                    <a href="index-next.php?page=<?php echo $page_i; ?>"><?php echo $page_i; ?></a>
+                    <a href="index.php?page=<?php echo $page_i; ?>"><?php echo $page_i; ?></a>
                 <?php } ?>
                 <?php } ?>
 <!--
