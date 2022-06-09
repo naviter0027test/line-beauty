@@ -1,6 +1,19 @@
 <?php 
 include "_fphp/allpage.php";
 
+$idx = 0;
+if(isset($_GET['idx']) == true) {
+    $idx = $_GET['idx'];
+}
+
+$row_news = $db->getRows('dbnews',array('where'=>array('idx'=>$idx),'return_type'=>'single'));
+
+$row_imgs = $db->getRows('files',array('where'=>array('idx'=>$idx),'limit'=>999));
+$row_imgscount = $db->getRows('files',array('where'=>array('idx'=>$idx),'return_type'=>'count'));
+
+$row_vedio = $db->getRows('dbvedio',array('where'=>array('idx'=>$idx),'return_type'=>'single'));
+
+$row_nowcata = $db->getRows('dbnews_cata',array('where'=>array('big_id'=>$row_news['big_id']),'return_type'=>'single'));
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -21,7 +34,7 @@ include "_fphp/allpage.php";
     <div class="wrapper_head">
         <button class="head_left"><img src="img/list-head-left.png" /></button>
         <img src="img/LOGO-001-white.png" class="logo1"></img> <!--label class="logo2">阿鬼</label-->
-        <a href="index-next.php" class="head_right">回上一頁</a>
+        <a href="javascript:history.go(-1);" class="head_right">回上一頁</a>
     </div>
     <div class="wrapper_maincontent">
         <div class="box_left">
@@ -33,14 +46,27 @@ include "_fphp/allpage.php";
             <a href="index-next.php?cate=34">台南外送</a>
         </div>
         <div class="box_show3">
+        <?php if($row_imgscount < 1) { ?>
+            <span class="video_play"><img src="img/play.png"/><!--▶--></span>
+            <span class="video_pause"><img src="img/pause.png"/></span>
+            <video class="video_box">
+                <source src="vedio/<?php echo $row_vedio['file_src']; ?>#t=0.1" type="video/mp4">
+            </video>
+        <?php } else if($idx == 0) { ?>
             <span class="video_play"><img src="img/play.png"/><!--▶--></span>
             <span class="video_pause"><img src="img/pause.png"/></span>
             <video class="video_box">
                 <source src="/vedio/202204202153136413.mp4#t=0.1" type="video/mp4">
                 <!--source src="/vedio/202112201811213893.mp4#t=0.1" type="video/mp4"-->
             </video>
+        <?php } else { ?>
+            <?php for($i = 1;$i < count($row_imgs);++$i) { ?>
+            <img class="img_show_box" src="<?php echo "beautyimg/php/files/".$row_imgs[$i]['name'];?>" />
+            <?php } ?>
+        <?php } ?>
         </div>
         <div class="box_detail">
+        <?php if($row_imgscount < 1 || $idx == 0) { ?>
             <div class="box_progress">
                 <span class="has_show has_text">05:33</span>
                 <div class="progress_out">
@@ -48,18 +74,23 @@ include "_fphp/allpage.php";
                 </div>
                 <span class="total_show has_text">11:88</span>
             </div>
+        <?php } ?>
             <div class="detail_show">
                 <div class="info_1">
                     <label class="info_1_1">
-                        雙北外送
+                        <!--雙北外送-->
+                        <?php echo $row_nowcata['big_name']; ?>
                     </label>
-                    <span class="info_span info_span_date"><img src="img/microphone-alt.png" /> 2022-06-02 </span>
+                    <span class="info_span info_span_date"><img src="img/microphone-alt.png" /> <?php echo substr($row_news['created'], 0, 10); ?> </span>
                 </div>
                 <div class="info_2 box_showword">
+<?php echo $row_news['new_message']; ?>
+<!--
 有沒有只要是先不：的而不像人的覺得
 <br /><br />以再的部分下去天沒標的是很當⋯自己的的內要去日本花，留本來是⋯更了小我可以小猜所以堆人。是說聲我看別人：種事沒有對他。
 <br />
 降或是要找小孩卡啊啊啊，又會相處包的喜歡到一，亮了道為什說過勞神奇人真的，有什網址啦是下還有五条悟村裡有，我真的會有一⋯她們很大開始了明年每次。理所有興趣文不也很的有，想要理中道怎麼同人認識沒有這麼，有就就這樣前是。竟是都本來不能自己小朋友，起來了嗚嗚嗚說不。
+-->
                 </div>
             </div>
         </div>

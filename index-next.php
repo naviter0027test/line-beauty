@@ -112,7 +112,8 @@ $row_marquee = $db->getRows('dbmarquee',array('where'=>array('idx'=>$id),'return
                 <ul>
                 <?php if(trim($row_imgs[0]['name']) != '') { ?>
                 <li>
-                    <a href="<?php echo "beautyimg/php/files/".$row_imgs[0]['name'];?>" class="html5lightbox" data-group="<?php echo 'set'.$row_new['idx'];?>">
+                    <!--a href="<?php echo "beautyimg/php/files/".$row_imgs[0]['name'];?>" class="html5lightbox" data-group="<?php echo 'set'.$row_new['idx'];?>"-->
+                    <a href="<?php echo "index_detail.php?idx=".$row_new['idx'];?>"  >
                         <img class="show_img" src="<?php echo "beautyimg/php/files/".$row_imgs[0]['name'];?>" />
                     </a>
                 </li>
@@ -129,7 +130,8 @@ $row_marquee = $db->getRows('dbmarquee',array('where'=>array('idx'=>$id),'return
                 <?php } ?>
                 <?php } else if(!empty($row_vedio)) { ?>
                 <li class="viedo video_li">
-                    <a href="vedio/<?php echo $row_vedio['file_src']; ?>" class="html5lightbox" data-group="<?php echo 'set'.$row_new['idx'];?>">
+                    <!--a href="vedio/<?php echo $row_vedio['file_src']; ?>" class="html5lightbox" data-group="<?php echo 'set'.$row_new['idx'];?>"-->
+                    <a href="index_detail.php?idx=<?php echo $row_new['idx']; ?>" >
                         <img src="img/icon_vedio.png" class="video_play" />
                         <canvas class="viewvedio"></canvas>
                       <video><source src="<?php echo "vedio/".$row_vedio['file_src'];?>#t=0.1" type="video/mp4"></video>
