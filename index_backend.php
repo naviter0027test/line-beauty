@@ -122,7 +122,7 @@ $row_marquee = $db->getRows('dbmarquee',array('where'=>array('idx'=>$id),'return
   <?php if(!empty($row_catas)){?>
   <ul>
 	  <?php foreach($row_catas as $row_cata){?>
-        <a href="<?php echo "index.php?cata=".$row_cata['big_id']?>"><li <?php if($row_cata['big_id']==$cata){ echo "class='now'";}?>><?php echo $row_cata['big_name'];?></li></a>
+        <a href="<?php echo "index_backend.php?cata=".$row_cata['big_id']?>"><li <?php if($row_cata['big_id']==$cata){ echo "class='now'";}?>><?php echo $row_cata['big_name'];?></li></a>
        <?php }?> 
   </ul>
    <?php }?>
