@@ -28,7 +28,7 @@ if ($securimage->check($_POST['captcha_code']) != false) {
 			$_SESSION[$SK_LOGIN_ACCOUNT] = $row_admin['name'];
 			$_SESSION[$SK_LOGIN_RANK] = $row_admin['rank'];
 			
-			  $url="../index-backend.php";
+			  $url="../index_backend.php";
 		       header(sprintf("Location: %s", $url));	
 			   exit();
 
